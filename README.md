@@ -1,2 +1,2 @@
-# CodeWars
+# Codewars
 This is my codewars kata solutions
