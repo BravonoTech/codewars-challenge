@@ -6,7 +6,7 @@
 // 999 --> 4 (because 9*9*9 = 729, 7*2*9 = 126, 1*2*6 = 12, and finally 1*2 = 2)
 // 4 --> 0 (because 4 is already a one-digit number)
 
-//MY SOLUTION
+//MY SOLUTION 1
 function persistence(num) {
   let myStr = num.toString();
   let myNum = myStr;
@@ -21,3 +21,25 @@ function persistence(num) {
   }
   return count;
 }
+
+//MY SOLUTION 2
+function persistence(num) {
+  let myStr = String(num).split("");
+  let count = 0;
+  //   //check if num is more than 1 digit.
+  if (myStr.length === 1) return 0;
+
+  //   //if not, turn it into a string and split it
+  while (myStr.length > 1) {
+    //     //multiple all digits in the array
+    num = myStr.reduce((acc, curr) => {
+      return Number(acc) * Number(curr);
+    });
+
+    myStr = String(num).split("");
+    count += 1;
+  }
+  return count;
+}
+
+console.log(persistence(4));
