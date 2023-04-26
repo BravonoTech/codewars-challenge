@@ -25,3 +25,20 @@ var number = function (busStops) {
   // Subtract out from in
   return into - out;
 };
+
+// MY SOLUTION 2
+var number = function (busStops) {
+  return busStops.reduce((left, [getIn, getOut]) => left + getIn - getOut, 0);
+};
+
+// MY SOLUTION 3
+var number = function (busStops) {
+  let getIn = 0;
+  let getOff = 0;
+  for (let pair of busStops) {
+    getIn += pair[0];
+    getOff += pair[1];
+  }
+
+  return getIn - getOff;
+};
