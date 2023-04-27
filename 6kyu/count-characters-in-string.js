@@ -2,6 +2,7 @@
 
 // What if the string is empty? Then the result should be empty object literal, {}
 
+//MY SOLUTION
 function count(string) {
   let obj = {};
 
