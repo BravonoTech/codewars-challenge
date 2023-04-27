@@ -14,10 +14,11 @@
 
 //MY SOLUTION
 function findUniq(arr) {
-  // find the min and max
-  let min = Math.min(...arr);
-  let max = Math.max(...arr);
+  let sorted = arr.sort().reverse();
+
+  let first = sorted.shift();
+  let last = sorted.pop();
 
   // check which of those doesn't occur twice
-  return arr.lastIndexOf(min) - arr.indexOf(min) > 0 ? max : min;
+  return arr.lastIndexOf(first) - arr.indexOf(first) > 0 ? last : first;
 }
