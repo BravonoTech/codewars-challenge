@@ -16,3 +16,8 @@ function minMax(arr) {
   let max = Math.max(...arr);
   return [min, max];
 }
+
+//MY SOLUTION 2
+function minMax(arr) {
+  return [Math.min(...arr), Math.max(...arr)]; // fix me!
+}
