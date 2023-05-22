@@ -7,3 +7,13 @@ function doubleChar(str) {
     .map((c) => c + c)
     .join("");
 }
+
+// MY SOLUTION 2
+function doubleChar(str) {
+  let doubleStr = "";
+  for (let i = 0; i < str.length; i++) {
+    let duplicate = str[i] + str[i];
+    doubleStr += duplicate;
+  }
+  return doubleStr;
+}
