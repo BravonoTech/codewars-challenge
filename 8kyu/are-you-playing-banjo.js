@@ -21,3 +21,13 @@ function areYouPlayingBanjo(name) {
     " banjo"
   );
 }
+
+// MY SOLUTION 3
+function areYouPlayingBanjo(name) {
+  if (typeof name != "string") return;
+  let myArray = name.split("");
+  if (myArray[0].toUpperCase() === "R") {
+    return `${name} plays banjo`;
+  }
+  return `${name} does not play banjo`;
+}
