@@ -34,3 +34,30 @@ snail = function (arr) {
 
   return finalArr;
 };
+
+// MY SOLUTION 2
+snail = function (array) {
+  let result = [];
+  let store = [];
+
+  while (array.length) {
+    for (let item of array) {
+      if (array.indexOf(item) === 0) {
+        result.push(...item);
+      } else if (array.indexOf(item) !== array.length - 1) {
+        result.push(item.pop());
+        store.push(item.shift());
+      } else {
+        result.push(...array[array.length - 1].reverse());
+      }
+    }
+
+    if (store.length) {
+      result.push(...store.reverse());
+    }
+    store = [];
+    array.shift();
+    array.pop();
+  }
+  return result;
+};
