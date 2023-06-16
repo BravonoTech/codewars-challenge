@@ -1,2 +1,3 @@
 # Codewars
-This is my codewars kata solutions
+
+This is my codewars challanges (katas) that I have ever solved solutions
