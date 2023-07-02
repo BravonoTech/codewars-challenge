@@ -15,18 +15,48 @@
 // Can also return an empty array
 
 function topThreeWords(text) {
+  let obj = {};
+
+  let result = [];
+
   if (text.length === 0) return [];
 
-  return text.match(/[\w'*]+/g);
   // turn the string into an array of valid words
+  let myArr = text.toLowerCase().match(/[\w'*]+/g);
+
+  // count word occurence
+  for (let item of myArr) {
+    if (obj[item] === undefined) obj[item] = 1;
+    else {
+      obj[item] += 1;
+    }
+  }
+
+  if (Object.keys(obj).length < 3) {
+    for (let i in obj) result.push(i);
+  } else {
+    let newArr = [];
+
+    for (let e in obj) newArr.push({ key: e, value: obj[e] });
+    newArr = newArr.sort((a, b) => {
+      if (a.value < b.value) {
+        return 1;
+      } else if (a.value > b.value) {
+        return -1;
+      }
+      return 0;
+    });
+
+    for (let j = 0; j < 3; j++) {
+      result.push(newArr[j].key);
+    }
+  }
+
+  return result;
 }
 
-console.log(
-  topThreeWords(`In' a village of La Mancha, the name of which I have no desire to call to
-mind', there lived not long since one of those gentlemen that keep a lance
-in the lance-rack, an old buckler, a lean hack, and a greyhound for
-coursing. An olla of rather more beef than mutt'on, a salad on most
-nights, scraps on Saturdays, lentils on Fridays, 'and a pigeon or so extra
-on Sundays, made away with three-quarters of his income.`)
-);
-// console.log("Ahbideen".length);
+console.log(topThreeWords(`//wont won't won't`));
+
+// let objs = { a: 1, b: 2 };
+
+// for (let i in objs) console.log(objs[i]);
