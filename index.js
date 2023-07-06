@@ -1,19 +1,18 @@
 function topThreeWords(text) {
   let obj = {};
-
   let result = [];
-
   let newArr = [];
 
   if (text.length === 0) return [];
 
   // turn the string into an array of valid words
   let myArr = text.toLowerCase().match(/[\w'*]+/g);
+
   // count word occurence
-  for (let item of myArr) {
-    if (obj[item] === undefined) obj[item] = 1;
+  for (let i = 0; i < myArr.length; i++) {
+    if (obj[myArr[i]] === undefined) obj[myArr[i]] = 1;
     else {
-      obj[item] += 1;
+      obj[myArr[i]] += 1;
     }
   }
 
@@ -28,14 +27,23 @@ function topThreeWords(text) {
   });
 
   if (Object.keys(sorted).length < 3) {
-    for (let i = 0; i < 2; i++) result.push(sorted[i].key);
+    for (let i = 0; i < 2; i++) {
+      if (sorted[i] !== undefined) {
+        result.push(sorted[i].key);
+      }
+    }
+    return result;
   }
 
-  for (let i = 0; i < 3; i++) result.push(sorted[i].key);
+  for (let i = 0; i < 3; i++) {
+    if (sorted[i] !== undefined) {
+      result.push(sorted[i].key);
+    }
+  }
   return result;
 }
 
-console.log(topThreeWords(`a a c c c b b b`));
+console.log(topThreeWords(`a a a  b c c c`));
 
 // let objs = { a: 1, b: 2 };
 

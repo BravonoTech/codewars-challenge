@@ -28,14 +28,20 @@ function topThreeWords(text) {
   });
 
   if (Object.keys(sorted).length < 3) {
-    for (let i = 0; i < 2; i++) result.push(sorted[i].key);
+    for (let i = 0; i < 2; i++) {
+      console.log("When", sorted[i]);
+      // result.push(sorted[i].key);
+    }
   }
 
-  for (let i = 0; i < 3; i++) result.push(sorted[i].key);
+  for (let i = 0; i < 3; i++) {
+    console.log(sorted[i].key);
+    result.push(sorted[i].key);
+  }
   return result;
 }
 
-console.log(topThreeWords(`a a c c c b b b`));
+console.log(topThreeWords(`a a a  b`));
 
 // let objs = { a: 1, b: 2 };
 
