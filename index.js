@@ -1,9 +1,17 @@
-function sumStr(a, b) {
-  if (a.length != 0 && b.length != 0) return String(parseInt(a) + parseInt(b));
+var maxSequence = function (arr) {
+  let currentSum = 0;
+  let maxSum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    currentSum += arr[i];
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+    }
+    if (currentSum < 0) {
+      currentSum = 0;
+    }
+  }
 
-  if ((a + b).length == 0) return "0";
+  return maxSum;
+};
 
-  return a + b;
-}
-
-console.log(Number(""));
+console.log(maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
